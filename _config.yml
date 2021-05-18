@@ -2,6 +2,9 @@ markdown: kramdown
 theme: null
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
+
+include: [_pages]
 
 title: Northstowe News
 email: northstowenews@gmail.com
