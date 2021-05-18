@@ -1,2 +1,8 @@
-theme: jekyll-theme-cayman
+markdown: kramdown
+theme: null
+plugins:
+  - jekyll-feed
+
+title: Northstowe News
+email: northstowenews@gmail.com
 
