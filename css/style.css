@@ -1,3 +1,7 @@
+body{
+    background-color: rgb(230, 230, 230);
+}
+
 
 #project_title {
     font-size: 80px;
@@ -6,6 +10,7 @@
 #header_wrap {
     display: block;
     width: 100%;
+    top: 0px;
     background-color: rgb(197, 233, 233);
     margin: 0;
 
@@ -19,13 +24,6 @@
 
 #pdf-js-viewer {
     width: 100%;
-    height: calc(100vw * .70 + 42px);
-
-}
-
-#viewerContainer{
-    display: block;
-    width: 100%;
-    height: calc(100vw * .70 + 32px);
+    height: calc(100vw * .71 + 5px);
 
 }

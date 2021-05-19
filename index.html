@@ -8,11 +8,12 @@
 
     <script>
         window.onload = function() {
+            let pdf = document.getElementById('pdf-js-viewer').contentWindow;
             let link = document.createElement("link");
             link.href = "/css/pdfstyle.css";      /**** your CSS file ****/ 
             link.rel = "stylesheet"; 
-            link.type = "text/css"; 
-            frames[0].document.head.appendChild(link); /**** 0 is an index of your iframe ****/
+            link.type = "text/css";
+            pdf.document.head.appendChild(link);
         }
     </script>
 
@@ -45,7 +46,7 @@
         <a name="Latest"></a><h3>Read the latest issue</h3>
 
         <div>
-            <iframe id="pdf-js-viewer" src="external/pdf-viewer/external/pdfjs-2.1.266-dist/web/viewer.html?file=%2Fpdf%2FNorthstowe_News_Issue_15__2021_05.pdf" title="webviewer" frameborder="0" width="500" height="600"></iframe>
+            <iframe id="pdf-js-viewer" src="pdf-viewer/external/pdfjs-2.1.266-dist/web/viewer.html?file=%2Fpdf%2FNorthstowe_News_Issue_15__2021_05.pdf" title="webviewer" frameborder="0" width="500" height="600"></iframe>
         </div>
 
         <a name="Archive"></a><h3>Read Previous Issues</h3>
