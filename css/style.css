@@ -1,0 +1,31 @@
+
+#project_title {
+    font-size: 80px;
+}
+
+#header_wrap {
+    display: block;
+    width: 100%;
+    background-color: rgb(197, 233, 233);
+    margin: 0;
+
+}
+
+#header_wrap.inner {
+    height: 180px;
+
+
+}
+
+#pdf-js-viewer {
+    width: 100%;
+    height: calc(100vw * .70 + 42px);
+
+}
+
+#viewerContainer{
+    display: block;
+    width: 100%;
+    height: calc(100vw * .70 + 32px);
+
+}
