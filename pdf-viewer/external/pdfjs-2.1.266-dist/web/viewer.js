@@ -13847,6 +13847,7 @@ function getDefaultPreferences() {
       "historyUpdateUrl": false,
       "scrollModeOnLoad": 3, // FLIP
       "spreadModeOnLoad": 2, // EVEN
+      "disablePreferences": true,
     });
   }
 
