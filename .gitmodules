@@ -1,0 +1,3 @@
+[submodule "external/pdf-viewer"]
+	path = external/pdf-viewer
+	url = https://github.com/RaffaeleMorganti/pdf-viewer.git
