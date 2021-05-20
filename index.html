@@ -10,8 +10,8 @@
         window.onload = function() {
             let pdf = document.getElementById('pdf-js-viewer').contentWindow;
             let link = document.createElement("link");
-            link.href = "/css/pdfstyle.css";      /**** your CSS file ****/ 
-            link.rel = "stylesheet"; 
+            link.href = "/css/pdfstyle.css";
+            link.rel = "stylesheet";
             link.type = "text/css";
             pdf.document.head.appendChild(link);
         }
@@ -20,48 +20,34 @@
 </head>
 
 <body>
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <h1 id="project_title">Northstowe News</h1>
-          <h2 id="project_tagline">By Northstowe Community – For Northstowe Community</h2>
-        </header>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="#About">About</a></li>
-                <li><a href="#Latest">Latest</a></li>
-                <li><a href="#Archive">Archive</a></li>
-                <li><a href="#Advertising">Advertising</a></li>
-                <li><a href="#Contribute">Contribute</a></li>
-            </ul>
-        </nav>
+    <header class="inner">
+      <i></i>By&nbsp;Northstowe&nbsp;Community – For&nbsp;Northstowe&nbsp;Community
+    </header>
+    <nav>
+      <a href="#About">About</a>
+      <a href="#Latest">Latest</a>
+      <a href="#Archive">Archive</a>
+      <a href="#Advertising">Advertising</a>
+      <a href="#Contribute">Contribute</a>
+    </nav>
 
-    </div>
+    <section id="main_content">
+      <a name="About" title="About the Northstowe News"></a>
+      <p>Northstowe News is a magazine which is printed every two months, and distributed free to every home in the growing town of Northstowe in Cambridgeshire. It has always been produced for Northstowe residents and by Northstowe residents. In each issue you will find information from local community groups and churches, news from the local schools and the councils, details of upcoming sporting and social events and more.</p>
+      <a name="Latest" title="Read the latest issue"></a>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
+      <div>
+          <iframe id="pdf-js-viewer" src="pdf-viewer/external/pdfjs-2.1.266-dist/web/viewer.html?file=%2Fpdf%2FNorthstowe_News_Issue_15__2021_05.pdf" title="webviewer" frameborder="0" width="500" height="600"></iframe>
+      </div>
 
-        <a name="About"></a><h3>About the Northstowe News</h3>
-        <p>Northstowe News is a magazine which is printed every two months, and distributed free to every home in the growing town of Northstowe in Cambridgeshire. It has always been produced for Northstowe residents and by Northstowe residents. In each issue you will find information from local community groups and churches, news from the local schools and the councils, details of upcoming sporting and social events and more.</p>
-        <a name="Latest"></a><h3>Read the latest issue</h3>
-
-        <div>
-            <iframe id="pdf-js-viewer" src="pdf-viewer/external/pdfjs-2.1.266-dist/web/viewer.html?file=%2Fpdf%2FNorthstowe_News_Issue_15__2021_05.pdf" title="webviewer" frameborder="0" width="500" height="600"></iframe>
-        </div>
-
-        <a name="Archive"></a><h3>Read Previous Issues</h3>
-        <p>Work in progress.</p>
-        <a name="Contribute"></a><h3>Contribute to the Northstowe News</h3>
-        <p>Northstowe News is produced by a small group of volunteers. We're always looking for regular or one-off articles, photos, artwork, event reports, notices, and anything else that may be of interest to the Northstowe Community. If you would like to write in the magazine please email <a href=mailto:northstowenews@gmail.com">northstowenews@gmail.com</a> with your questions, ideas and contributions.</p>
-        <a name="Advertising"></a><h3>Advertise in the Northstowe News</h3>
-        <p>If you would like to advertise in the Northstowe News please contact <a href="mailto:janetpendrill@gmail.com">janetpendrill@gmail.com</a> for more details. Annual rates and colour ads also available on request.</p>
-
-
-
-      </section>
-    </div>
-
-
+      <a name="Archive" title="Read Previous Issues"></a>
+      <p>Work in progress.</p>
+      <a name="Contribute" title="Contribute to the Northstowe News"></a>
+      <p>Northstowe News is produced by a small group of volunteers. We're always looking for regular or one-off articles, photos, artwork, event reports, notices, and anything else that may be of interest to the Northstowe Community. If you would like to write in the magazine please email <a href=mailto:northstowenews@gmail.com">northstowenews@gmail.com</a> with your questions, ideas and contributions.</p>
+      <a name="Advertising" title="Advertise in the Northstowe News"></a>
+      <p>If you would like to advertise in the Northstowe News please contact <a href="mailto:janetpendrill@gmail.com">janetpendrill@gmail.com</a> for more details. Annual rates and colour ads also available on request.</p>
+    </section>
+    <footer></footer>
   </body>
 
 </html>

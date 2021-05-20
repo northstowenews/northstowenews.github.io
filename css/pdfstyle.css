@@ -2,16 +2,12 @@
 {
     background-image: none;
     background-color: rgb(230, 230, 230);
-
 }
-
 
 #viewerContainer
 {
     overflow: hidden;
-
 }
-
 
 #openFile,#print,#download,#viewBookmark,#secondaryToolbarToggle,#toolbarViewerMiddle,.verticalToolbarSeparator
 {
