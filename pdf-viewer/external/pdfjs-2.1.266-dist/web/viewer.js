@@ -2131,11 +2131,17 @@ function webViewerLastPage() {
 }
 
 function webViewerNextPage() {
-  PDFViewerApplication.page++;
+  if (PDFViewerApplication.page < PDFViewerApplication.pagesCount - 1)
+    PDFViewerApplication.page += 2;
+  else if (PDFViewerApplication.page < PDFViewerApplication.pagesCount)
+    PDFViewerApplication.page ++;
 }
 
 function webViewerPreviousPage() {
-  PDFViewerApplication.page--;
+  if (PDFViewerApplication.page > 2)
+    PDFViewerApplication.page -= 2;
+  else if (PDFViewerApplication.page > 1)
+    PDFViewerApplication.page --;
 }
 
 function webViewerZoomIn() {
@@ -2579,13 +2585,15 @@ function webViewerKeyDown(evt) {
 
     if (turnPage !== 0 && (!turnOnlyIfPageFit || pdfViewer.currentScaleValue === 'page-fit')) {
       if (turnPage > 0) {
-        if (PDFViewerApplication.page < PDFViewerApplication.pagesCount) {
-          PDFViewerApplication.page++;
-        }
+        if (PDFViewerApplication.page < PDFViewerApplication.pagesCount - 1)
+          PDFViewerApplication.page += 2;
+        else if (PDFViewerApplication.page < PDFViewerApplication.pagesCount)
+          PDFViewerApplication.page ++;
       } else {
-        if (PDFViewerApplication.page > 1) {
-          PDFViewerApplication.page--;
-        }
+        if (PDFViewerApplication.page > 2)
+          PDFViewerApplication.page -= 2;
+        else if (PDFViewerApplication.page > 1)
+          PDFViewerApplication.page --;
       }
 
       handled = true;
@@ -8265,17 +8273,17 @@ function () {
           break;
 
         case 'NextPage':
-          if (this.page < this.pagesCount) {
-            this.page++;
-          }
-
+          if (this.page < this.pagesCount - 1)
+            this.page += 2;
+          else if (this.page < this.pagesCount)
+            this.page ++;
           break;
 
         case 'PrevPage':
-          if (this.page > 1) {
-            this.page--;
-          }
-
+          if (this.page > 2)
+            this.page -= 2;
+          else if (this.page > 1)
+            this.page --;
           break;
 
         case 'LastPage':

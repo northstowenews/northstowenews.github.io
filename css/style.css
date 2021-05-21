@@ -45,7 +45,7 @@ nav {
   top: 0;
   background-color: #C0D7EFD0;
   -webkit-backdrop-filter: blur(6px);
-  -backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
   font-size: 110%;
   text-transform: uppercase;
   padding: 0.1em 0;
@@ -90,7 +90,7 @@ a[title]{
 }
 
 p {
-    margin: auto;
+    margin: 0.3em auto;
     max-width: 40em;
     padding-left: 2em;
     text-shadow: -0.05em -0.15em #ffffff70;

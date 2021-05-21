@@ -8,12 +8,21 @@
 
     <script>
         window.onload = function() {
-            let pdf = document.getElementById('pdf-js-viewer').contentWindow;
-            let link = document.createElement("link");
-            link.href = "/css/pdfstyle.css";
-            link.rel = "stylesheet";
-            link.type = "text/css";
-            pdf.document.head.appendChild(link);
+            const monthNames = ["January", "February", "March", "April", "May", "June",
+              "July", "August", "September", "October", "November", "December"
+            ];
+            let today = new Date();
+            let next_deadline_mm = (Math.floor((today.getMonth() + 1)/2)*2 + 1) % 12;
+            document.getElementById('mm_deadline').innerText = monthNames[next_deadline_mm];
+            let next_issue_mm = (next_deadline_mm + 1)%12;
+            document.getElementById('mm_issue').innerText = monthNames[next_issue_mm] + " / " + monthNames[next_issue_mm + 1];
+            let yyyy = today.getFullYear();
+            let m = today.getMonth() - (today.getMonth()%2);
+            let issue = 6*(yyyy - 2019) + m/2 + 1;
+            let mm = ("0"+(m+1)).substr(-2);
+
+            let pdf = document.getElementById('pdf-js-viewer');
+            pdf.src = `pdf-viewer/external/pdfjs-2.1.266-dist/web/viewer.html?file=%2Fpdf%2FNorthstowe_News_Issue_${issue}__${yyyy}_${mm}.pdf`;
         }
     </script>
 
@@ -37,15 +46,18 @@
       <a name="Latest" title="Read the latest issue"></a>
 
       <div>
-          <iframe id="pdf-js-viewer" src="pdf-viewer/external/pdfjs-2.1.266-dist/web/viewer.html?file=%2Fpdf%2FNorthstowe_News_Issue_15__2021_05.pdf" title="webviewer" frameborder="0" width="500" height="600"></iframe>
+          <iframe id="pdf-js-viewer" src="pdf-viewer/external/pdfjs-2.1.266-dist/web/viewer.html?file=%2fpdf%2fblank.pdf" title="webviewer" frameborder="0" width="500" height="600"></iframe>
       </div>
 
       <a name="Archive" title="Read Previous Issues"></a>
       <p>Work in progress.</p>
       <a name="Contribute" title="Contribute to the Northstowe News"></a>
       <p>Northstowe News is produced by a small group of volunteers. We're always looking for regular or one-off articles, photos, artwork, event reports, notices, and anything else that may be of interest to the Northstowe Community. If you would like to write in the magazine please email <a href=mailto:northstowenews@gmail.com">northstowenews@gmail.com</a> with your questions, ideas and contributions.</p>
+      <p>The submission deadline for the <span id="mm_issue">September / October</span> issue is <strong><span id="mm_deadline">August</span> 1<sup>st</sup></strong></p>
       <a name="Advertising" title="Advertise in the Northstowe News"></a>
       <p>If you would like to advertise in the Northstowe News please contact <a href="mailto:janetpendrill@gmail.com">janetpendrill@gmail.com</a> for more details. Annual rates and colour ads also available on request.</p>
+      <table><tr></tr></table>
+
     </section>
     <footer></footer>
   </body>
