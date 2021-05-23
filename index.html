@@ -9,7 +9,7 @@
     <script>
         window.onload = function() {
             const monthNames = ["January", "February", "March", "April", "May", "June",
-              "July", "August", "September", "October", "November", "December"
+              "July", "August", "September", "October", "November", "December", "January"
             ];
             let today = new Date();
             let next_deadline_mm = (Math.floor((today.getMonth() + 1)/2)*2 + 1) % 12;
@@ -23,6 +23,63 @@
 
             let pdf = document.getElementById('pdf-js-viewer');
             pdf.src = `pdf-viewer/external/pdfjs-2.1.266-dist/web/viewer.html?file=%2Fpdf%2FNorthstowe_News_Issue_${issue}__${yyyy}_${mm}.pdf`;
+
+            let issueslist = document.getElementById('issues_list');
+            let recent = true;
+
+            while (issue > 0)
+            {
+
+              let div = document.createElement('div');
+              div.classList.add('issue_thumb');
+              if (recent)
+              {
+                div.classList.add('issue_select');
+                recent = false;
+              }
+              div.id = `Issue_${("0"+(issue)).substr(-2)}__${yyyy}_${("0"+(m+1)).substr(-2)}`;
+              let thumb = issue - (issue>4?2:1);
+              let x = thumb % 10;
+              let y = (thumb - x)/10;
+              div.style.backgroundPosition = `-${x}00% -${y}00%`;
+              div.title = `${issue} - ${monthNames[m]} / ${monthNames[m+1]} ${yyyy}`;
+              div.onclick = (evt) => {
+                if (!evt.target.classList.contains('issue_select'))
+                {
+                  Array.from(document.querySelectorAll('.issue_select')).forEach((el) => el.classList.remove('issue_select'));
+                  evt.target.classList.add('issue_select');
+                  let pdf = document.getElementById('pdf-js-viewer');
+                  pdf.src = `pdf-viewer/external/pdfjs-2.1.266-dist/web/viewer.html?file=%2Fpdf%2FNorthstowe_News_${evt.target.id}.pdf`;
+
+                }
+              }
+              issueslist.appendChild(div);
+
+
+              issue --;
+              m -= 2;
+              if (m<0)
+              {
+                yyyy --;
+                m += 12;
+              }
+              if (issue==4)
+              {
+                issue --;
+                m -= 3;
+              }
+            }
+        }
+
+        function show_toggle()
+        {
+
+          document.getElementById('issues_list').classList.toggle('h_limit');
+          document.getElementById('show_link').remove();
+
+
+
+
         }
     </script>
 
@@ -34,8 +91,8 @@
     </header>
     <nav>
       <a href="#About">About</a>
-      <a href="#Latest">Latest</a>
-      <a href="#Archive">Archive</a>
+      <a href="#Read">Read</a>
+      <a href="#Issues">Issues</a>
       <a href="#Advertising">Advertising</a>
       <a href="#Contribute">Contribute</a>
     </nav>
@@ -43,14 +100,14 @@
     <section id="main_content">
       <a name="About" title="About the Northstowe News"></a>
       <p>Northstowe News is a magazine which is printed every two months, and distributed free to every home in the growing town of Northstowe in Cambridgeshire. It has always been produced for Northstowe residents and by Northstowe residents. In each issue you will find information from local community groups and churches, news from the local schools and the councils, details of upcoming sporting and social events and more.</p>
-      <a name="Latest" title="Read the latest issue"></a>
+      <a name="Read" title="Read the magazine"></a>
 
       <div>
           <iframe id="pdf-js-viewer" src="pdf-viewer/external/pdfjs-2.1.266-dist/web/viewer.html?file=%2Fpdf%2Fblank.pdf" title="webviewer" frameborder="0" width="500" height="600"></iframe>
       </div>
 
-      <a name="Archive" title="Read Previous Issues"></a>
-      <p>Work in progress.</p>
+      <a name="Issues" title="Previous Issues"></a>
+      <div id="issues_list" class="h_limit"></div><a href="javascript:show_toggle()" id="show_link"">Show more…</a>
       <a name="Contribute" title="Contribute to the Northstowe News"></a>
       <p>Northstowe News is produced by a small group of volunteers. We're always looking for regular or one-off articles, photos, artwork, event reports, notices, and anything else that may be of interest to the Northstowe Community. If you would like to write in the magazine please email <a href=mailto:northstowenews@gmail.com">northstowenews@gmail.com</a> with your questions, ideas and contributions.</p>
       <p>The submission deadline for the <span id="mm_issue">September / October</span> issue is <strong><span id="mm_deadline">August</span> 1<sup>st</sup></strong></p>

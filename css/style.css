@@ -105,6 +105,49 @@ p {
 }
 
 
+#issues_list
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    overflow: hidden;
+    margin: auto;
+    width: 100%;
+}
+#issues_list.h_limit
+{
+    height: 250px;
+}
+
+
+.issue_thumb::after
+{
+    position: relative;
+
+    top: 100%;
+    content: attr(title);
+    padding-top: 22px;
+    padding-bottom: 8px;
+    font-size: 75%;
+    margin: -30px;
+}
+.issue_thumb
+{
+    display: block;
+    background-image: url('/img/thumbs0.jpg');
+    background-size: 1000% 400%;
+    height: 150px;
+    width: 106px;
+    margin: 30px;
+    text-align: center;
+}
+.issue_select
+{
+    background-color: white;
+    outline: 30px solid white;
+    border-bottom: 10px solid white;
+}
+
 
 
 
