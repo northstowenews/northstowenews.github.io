@@ -89,7 +89,7 @@ a[title]{
     font-weight: 700;
 }
 
-p {
+p, table {
     margin: 0.3em auto;
     max-width: 40em;
     padding-left: 2em;
@@ -153,4 +153,47 @@ p {
 
 footer {
     padding: 2em;
+}
+
+table, th, td
+{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+table td, table th, table caption
+{    padding: 0.2em 2em;
+}
+
+table>caption
+{
+    font-weight: 700;
+    margin-top: 1.5em;
+}
+
+table i
+{
+    font-weight: 300;
+    font-style: italic;
+}
+
+table td {
+    font-weight: 700;
+    text-align: center;
+}
+
+table th[scope=column] {
+    font-size: 120%;
+    font-weight: 600;
+    -webkit-text-stroke: 0.2px black;
+}
+
+table th[scope=row] {
+    font-weight: 300;
+}
+
+th>i
+{
+    font-size: 80%;
+    display: block;
 }
