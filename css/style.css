@@ -96,6 +96,11 @@ p, table {
     text-shadow: -0.05em -0.15em #ffffff70;
 }
 
+a.elink
+{
+  unicode-bidi:bidi-override;
+  direction:rtl;
+}
 
 
 #pdf-js-viewer {
