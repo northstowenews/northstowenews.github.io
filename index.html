@@ -20,7 +20,10 @@
               "July", "August", "September", "October", "November", "December", "January"
             ];
             let today = new Date();
-            let next_deadline_mm = (Math.floor((today.getMonth() + 1)/2)*2 + 1) % 12;
+            let next_deadline_mm = (Math.floor((today.getMonth() + 1)/2)*2) % 12;
+            if (next_deadline_mm == 4 && today.getFullYear() == 2022) {
+              next_deadline_mm += 2;
+            };
             document.getElementById('mm_deadline').innerText = monthNames[next_deadline_mm];
             let next_issue_mm = (next_deadline_mm + 1)%12;
             document.getElementById('mm_issue').innerText = monthNames[next_issue_mm] + " / " + monthNames[next_issue_mm + 1];
