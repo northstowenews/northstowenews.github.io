@@ -20,16 +20,16 @@
               "July", "August", "September", "October", "November", "December", "January"
             ];
             let today = new Date();
-            let next_deadline_mm = (Math.floor((today.getMonth() + 1)/2)*2) % 12;
+            let next_deadline_mm = (Math.floor((today.getMonth() + 2)/2)*2) % 12;
             if (next_deadline_mm == 4 && today.getFullYear() == 2022) {
               next_deadline_mm += 2;
             };
             document.getElementById('mm_deadline').innerText = monthNames[next_deadline_mm];
             let next_issue_mm = (next_deadline_mm + 1)%12;
-            document.getElementById('mm_issue').innerText = monthNames[next_issue_mm] + " / " + monthNames[next_issue_mm + 1];
+            document.getElementById('mm_issue').innerText = monthNames[next_issue_mm] + " / " + monthNames[(next_issue_mm + 1)%12];
             let yyyy = today.getFullYear();
-            let m = today.getMonth() - (today.getMonth()%2);
-            let issue = 6*(yyyy - 2019) + m/2 + 1;
+            let m = today.getMonth() - ((today.getMonth() + 1)%2);
+            let issue = 6*(yyyy - 2019) + m/2 + .5;
             let mm = ("0"+(m+1)).substr(-2);
 
             let pdf = document.getElementById('pdf-js-viewer');
@@ -54,6 +54,14 @@
               let y = (thumb - x)/10;
               div.style.backgroundPosition = `-${x}00% -${y}00%`;
               div.title = `${issue} - ${monthNames[m]} / ${monthNames[m+1]} ${yyyy}`;
+
+              let months = `${issue} - ${monthNames[m]} / ${monthNames[m+1]}`;
+              if (issue == 21)
+              {
+                months += " / July"
+              }
+              div.title = `${months} ${yyyy}`;
+
               div.onclick = (evt) => {
                 if (!evt.target.classList.contains('issue_select'))
                 {
@@ -69,6 +77,10 @@
 
               issue --;
               m -= 2;
+              if (issue == 21)
+              {
+                m -= 1;
+              }
               if (m<0)
               {
                 yyyy --;
