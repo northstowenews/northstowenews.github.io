@@ -30,9 +30,9 @@ header {
 header>i
 {
     display: block;
-    height: 128px;
+    height: 100px;
     max-width: 900px;
-    background-image: url('../img/title.svg');
+    background-image: url('../img/2025logo.svg');
     background-size: 100% 100%;
     margin: auto;
     padding-top: 30px;
