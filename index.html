@@ -53,14 +53,15 @@
               let x = thumb % 10;
               let y = (thumb - x)/10;
               div.style.backgroundPosition = `-${x}00% -${y}00%`;
-              div.title = `${issue} - ${monthNames[m]} / ${monthNames[m+1]} ${yyyy}`;
 
-              let months = `${issue} - ${monthNames[m]} / ${monthNames[m+1]}`;
+              let yyyx = m==11 ? yyyy : '';
+              let yyyz = m==11 ? yyyy+1 : yyyy;
+              let months = `${issue} - ${monthNames[m]} ${yyyx} / ${monthNames[m+1]}`;
               if (issue == 21)
               {
                 months += " / July"
               }
-              div.title = `${months} ${yyyy}`;
+              div.title = `${months} ${yyyz}`;
 
               div.onclick = (evt) => {
                 if (!evt.target.classList.contains('issue_select'))
