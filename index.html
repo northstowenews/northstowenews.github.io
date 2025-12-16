@@ -43,6 +43,7 @@
 
               let div = document.createElement('div');
               div.classList.add('issue_thumb');
+              div.classList.add('image'+Math.floor(Math.max(0, (issue-2)/40)));
               if (recent)
               {
                 div.classList.add('issue_select');

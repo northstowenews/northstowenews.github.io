@@ -154,6 +154,10 @@ a.elink
     border-bottom: 10px solid white;
 }
 
+.issue_thumb.image1
+{
+    background-image: url('/img/thumbs1.jpg');
+}
 
 
 
